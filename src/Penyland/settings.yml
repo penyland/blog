@@ -1,0 +1,7 @@
+Host: "penyland.github.io"
+SiteTitle: "Peter Nylander's Blog"
+SiteDescription: ".NET, C#, DevOps, Open Source, Azure, Gaming, Heavy Metal and Beer!"
+PostSources: "posts/**/*"
+Copyright: => $"© Peter Nylander {DateTime.Now.Year}"
+LinksUseHttps: true
+DateTimeDisplayCulture: "en-SE"
