@@ -1,0 +1,28 @@
+name: Deploy Site
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@v3
+
+      - name: Install .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          global-json-file: global.json
+      
+      - name: Restore dependencies
+        run: dotnet restore src/Penyland/Penyland.csproj
+
+      - run: dotnet run --project .\src\Penyland\Penyland.csproj -- deploy
+        env:
+          PENYLAND_GITHUB_TOKEN: ${{ secrets.PENYLAND_GITHUB_TOKEN }}
