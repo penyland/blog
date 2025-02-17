@@ -1,0 +1,33 @@
+{
+  "site": {
+    "title": "Peter Nylanders blog",
+    "base_url": "https://penyland.github.io/",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.png",
+    "logo_width": "500",
+    "logo_height": "34",
+    "tagline": "A tale of passion of code! And beer and heavy metal!"
+  },
+  "settings": {
+    "pagination": 10,
+    "summary_length": 100,
+    "theme_switcher": true,
+    "default_theme": "system"
+  },
+  "metadata": {
+    "meta_author": "Peter Nylander",
+    "meta_image": "/images/og-image.png",
+    "meta_description": ""
+  },
+  "params": {
+    "contact_form_action": "#",
+    "copyright": "Copyright © 2025 Peter Nylander"
+  },
+  "contactinfo": {
+    "address": "",
+    "email": "",
+    "phone": ""
+  }
+}
