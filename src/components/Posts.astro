@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+
+const { posts } = Astro.props;
+---
+
+<div class="max-w-3xl mx-auto">
+  <h1 class="text-3xl font-bold mb-8 text-left">Latest Blog Posts</h1>
+  <div class="space-y-6">
+    <!-- Repeat this block for each blog post -->
+    {
+      posts.map((post) => (
+        <a
+          href="/blog/post-1"
+          class="block bg-white shadow-md hover:shadow-lg transition-shadow duration-200 rounded-lg overflow-hidden"
+        >
+          <div class="p-6">
+            <h2 class="text-xl font-semibold mb-2">{post.data.title}</h2>
+            <p class="text-gray-600 mb-4">
+              This is a short description of the blog post. It gives readers a
+              quick overview of what the post is about.
+            </p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="mr-4">Published: Jan 1, 2025</span>
+              <div class="flex space-x-2">
+                <span class="px-2 py-1 bg-gray-200 rounded-full">Tag1</span>
+                <span class="px-2 py-1 bg-gray-200 rounded-full">Tag2</span>
+                <span class="px-2 py-1 bg-gray-200 rounded-full">Tag3</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      ))
+    }
+    <!-- End of blog post block -->
+  </div>
+</div>
