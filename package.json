@@ -1,5 +1,5 @@
 {
-  "name": "blog",
+  "name": "penyland.github.io",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,10 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.0.8",
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
     "@tailwindcss/vite": "^4.0.6",
     "astro": "^5.3.0",
     "react-icons": "^5.4.0",
     "sass": "^1.85.0",
-    "tailwindcss": "^4.0.6"
+    "tailwindcss": "^4.0.7"
   }
 }

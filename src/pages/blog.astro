@@ -1,15 +1,15 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
 import PostsGrid from "../components/PostsGrid.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const allPosts = await getCollection("posts");
 ---
 
-<Layout>
+<BaseLayout>
   <section class="section">
     <div class="container">
       <PostsGrid posts={allPosts} />
     </div>
   </section>
-</Layout>
+</BaseLayout>

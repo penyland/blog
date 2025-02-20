@@ -2,7 +2,7 @@
 title: "Running PostgreSQL in a container and managing it with pgAdmin"
 meta_title: ""
 description: "meta description"
-date: 2025-02-13T19:53:00Z
+date: 2025-02-19T19:53:00Z
 image: "/images/posts/01.jpg"
 categories: ["containers", "postgres", "databases"]
 author: "Peter Nylander"
@@ -16,21 +16,21 @@ This is a great way to get started with PostgreSQL without having to install it 
 
 ## Pulling the image
 Start by pulling the PostgreSQL image from Docker Hub by running the following command.
-```
+```sh
 docker pull postgres
 ```
 alternatively
-```
+```sh
 podman pull postgres
 ```
 
 ## Create the container
 Now that we have the image, we can create a container by running the following command.
-```
+```sh
 docker run --name postgres -e POSTGRES_PASSWORD=mysecretpassword -v postgres-data:/var/lib/postgresql/data -p 5432:5432 -d postgres
 ```
 alternatively
-```
+```sh
 podman run --name postgres -e POSTGRES_PASSWORD=mysecretpassword -v postgres-data:/var/lib/postgresql/data -p 5432:5432 -d postgres
 ```
 
@@ -44,20 +44,20 @@ The container is exposed on port 5432, which is the default port for PostgresSQL
 Now let's install pgAdmin4 to manage the database. PgAdmin4 is a web-based tool for managing PostgresSQL databases.
 
 First start by pulling the image from Docker Hub.
-```
+```sh
 docker pull dpage/pgadmin4
 ```
 alternatively
-```
+```sh
 podman pull dpage/pgadmin4
 ```
 
 Now create the container by running the following command.
-```
+```sh
 docker run --name pgadmin -p 5051:80 -e "PGADMIN_DEFAULT_EMAIL=user@domain.com" -e "PGADMIN_DEFAULT_PASSWORD=mysecretpassword" -d dpage/pgadmin4
 ```
 alternatively
-```
+```sh
 podman run --name pgadmin -p 5051:80 -e "PGADMIN_DEFAULT_EMAIL=user@domain.com" -e "PGADMIN_DEFAULT_PASSWORD=mysecretpassword" -d dpage/pgadmin4
 ```
 
@@ -68,11 +68,11 @@ Browse to `http://localhost:5051` to access pgAdmin4. You can now connect to the
 ### Adding a new server
 On the dashboard, click on `Add New Server`. Enter a name for the server and go to the `Connection` tab.
 Here you need to add the ip address of the PostgresSQL container. You can find this by running the following command.
-```
+```sh
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' postgres
 ```
 alternatively
-```
+```sh
 podman inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' postgres
 ```
 

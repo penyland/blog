@@ -1,8 +1,8 @@
 ---
-title: "Trying out Podman"
+title: "C# Channel Producer Provider"
 meta_title: ""
 description: "meta description"
-date: 2025-02-11T22:45:00Z
+date: 2025-02-12T22:45:00Z
 image: "/images/posts/01.jpg"
 categories: ["containers"]
 author: "Peter Nylander"
@@ -10,21 +10,32 @@ tags: ["docker", "podman"]
 draft: false
 ---
 
-Trying out Podman as an alternative to Docker.
-
 ## Installing
-Start by installing Podman on your system. Download from here https://podman-desktop.io/
-Then follow the setup guide.
+```csharp
+internal class ChannelProducerProvider : IChannelProducerProvider
+{
+    private readonly IServiceProvider serviceProvider;
 
-## Running
-podman run -d -p 10000:10000 -p 10001:10001 -p 10002:10002 -v c:/Temp/azurite:/data mcr.microsoft.com/azure-storage/azurite:latest
+    public ChannelProducerProvider(IServiceProvider serviceProvider) => this.serviceProvider = serviceProvider;
 
-## Using Podman with the Docker extension for VS Code
+    public IDefaultChannelProducer GetDefaultProducer()
+    {
+        var defaultChannelProducer = serviceProvider.GetService<IDefaultChannelProducer>();
 
-To use Podman with the Docker extension for VS Code, you need to set the `DOCKER_HOST` environment variable to `npipe:////./pipe/podman-machine-default`.
+        return defaultChannelProducer!;
+    }
 
-Open settings and find the key Docker:Environment. Add the following value:
+    public IChannelProducer<T> GetProducer<T>()
+    {
+        var channelProducer = serviceProvider.GetService<IChannelProducer<T>>();
 
-DOCKER_HOST = npipe:////./pipe/podman-machine-default
+        return channelProducer ?? throw new InvalidOperationException($"No channel producer found for type {typeof(T).Name}");
+    }
 
-![alt text](/images/posts/post-1-image-1.png)
+    public IChannelProducer GetProducer(string serviceKey)
+    {
+        var channelProducer = serviceProvider.GetKeyedService<IChannelProducer>(serviceKey);
+        return channelProducer ?? throw new InvalidOperationException($"No channel producer found for service key {serviceKey}");
+    }
+}
+```
