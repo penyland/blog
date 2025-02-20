@@ -9,7 +9,7 @@ const { posts } = Astro.props;
 
 <div class="">
   <ul
-    class="grid grid-cols-2 mt-8 gap-4 gap-y-24 lg:grid-cols-2 sm:grid-cols-1 space-x-2"
+    class="grid grid-cols-2 mt-8 gap-4 gap-y-12 lg:grid-cols-2 sm:grid-cols-1"
   >
     {
       allPosts.map((post, i: number) => (
@@ -20,6 +20,7 @@ const { posts } = Astro.props;
           title={post.data.title}
           description={post.data.description}
           date={post.data.date.toString().slice(0, 10)}
+          coverImage={post.data.coverImage}
         />
         </div>
       ))

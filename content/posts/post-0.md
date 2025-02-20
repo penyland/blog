@@ -1,30 +1,19 @@
 ---
-title: "Hello and welcome to my blog"
+title: "Hello and welcome to my blog!"
 meta_title: ""
 description: "meta description"
 date: 2025-02-11T22:45:00Z
-image: "/images/posts/01.jpg"
-categories: ["containers"]
+image: "/images/fhc1_fhc.svg"
+coverImage: "/images/fhc1_fhc.svg"
+categories: ["about"]
 author: "Peter Nylander"
-tags: ["docker", "podman"]
+tags: ["about"]
 draft: false
 ---
 
-Trying out Podman as an alternative to Docker.
+My name's is Peter Nylander and I'm a software engineer and a solution architect!
 
-## Installing
-Start by installing Podman on your system. Download from here https://podman-desktop.io/
-Then follow the setup guide.
+I have been working with software development for over 20 years. 
+I have worked with many different technologies and platforms, but I have always had a passion for Microsoft technologies. 
 
-## Running
-podman run -d -p 10000:10000 -p 10001:10001 -p 10002:10002 -v c:/Temp/azurite:/data mcr.microsoft.com/azure-storage/azurite:latest
-
-## Using Podman with the Docker extension for VS Code
-
-To use Podman with the Docker extension for VS Code, you need to set the `DOCKER_HOST` environment variable to `npipe:////./pipe/podman-machine-default`.
-
-Open settings and find the key Docker:Environment. Add the following value:
-
-DOCKER_HOST = npipe:////./pipe/podman-machine-default
-
-![alt text](/images/posts/post-1-image-1.png)
+On this blog I will write about my thoughts and ideas about software development and architecture. I will also share some of my projects and code snippets and what I have learned from on the way. I hope you will find something interesting here and that you will come back for more!

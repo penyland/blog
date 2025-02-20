@@ -1,5 +1,5 @@
 ---
-const { url, title, description, date, author } = Astro.props;
+const { url, title, description, date, author, coverImage } = Astro.props;
 ---
 
 <li
@@ -10,7 +10,7 @@ const { url, title, description, date, author } = Astro.props;
       <div class="block w-full">
         <img
           class="object-scale-down bg-center h-64 w-full group-hover:scale-[1.03] transition duration-300"
-          src="images/fhc1_fhc.svg"
+          src={coverImage}
           alt={title}
         />
       </div>

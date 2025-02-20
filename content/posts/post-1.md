@@ -1,41 +1,41 @@
 ---
-title: "C# Channel Producer Provider"
+title: "Trying out Podman as an alternative to Docker."
 meta_title: ""
 description: "meta description"
-date: 2025-02-12T22:45:00Z
-image: "/images/posts/01.jpg"
+date: 2025-02-16T22:45:00Z
+image: "/images/fhc1_fhc.svg"
+coverImage: "/images/fhc1_fhc.svg"
 categories: ["containers"]
 author: "Peter Nylander"
 tags: ["docker", "podman"]
 draft: false
 ---
 
+Trying out Podman as an alternative to Docker.
+
 ## Installing
-```csharp
-internal class ChannelProducerProvider : IChannelProducerProvider
-{
-    private readonly IServiceProvider serviceProvider;
+Start by installing Podman on your system. Download from here https://podman-desktop.io/
+Then follow the setup guide.
 
-    public ChannelProducerProvider(IServiceProvider serviceProvider) => this.serviceProvider = serviceProvider;
+## Running
+To run a container with Podman it essentially the same as with Docker. The only difference is that you use the **podman** command instead of **docker**.
 
-    public IDefaultChannelProducer GetDefaultProducer()
-    {
-        var defaultChannelProducer = serviceProvider.GetService<IDefaultChannelProducer>();
-
-        return defaultChannelProducer!;
-    }
-
-    public IChannelProducer<T> GetProducer<T>()
-    {
-        var channelProducer = serviceProvider.GetService<IChannelProducer<T>>();
-
-        return channelProducer ?? throw new InvalidOperationException($"No channel producer found for type {typeof(T).Name}");
-    }
-
-    public IChannelProducer GetProducer(string serviceKey)
-    {
-        var channelProducer = serviceProvider.GetKeyedService<IChannelProducer>(serviceKey);
-        return channelProducer ?? throw new InvalidOperationException($"No channel producer found for service key {serviceKey}");
-    }
-}
+Below is an example of running the Azurite container with Podman.
+```bash
+podman run -d -p 10000:10000 -p 10001:10001 -p 10002:10002 -v c:/Temp/azurite:/data mcr.microsoft.com/azure-storage/azurite:latest
 ```
+
+## Using Podman with the Docker extension for VS Code
+
+To use Podman with the Docker extension for VS Code, you need to set the **DOCKER_HOST** environment variable to point to the Podman socket.
+
+Open settings and find the key Docker:Environment. Add the value below.
+
+```bash
+DOCKER_HOST = npipe:////./pipe/podman-machine-default`
+```
+
+Picture of the settings in VS Code.
+![alt text](/images/posts/post-1-image-1.png)
+
+---
