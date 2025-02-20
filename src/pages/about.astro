@@ -22,10 +22,6 @@ const textCase = "uppercase";
 
 <BaseLayout pageTitle={pageTitle}>
   <style define:vars={{ skillColor, textCase }}>
-    h1 {
-      color: blue;
-      font-size: 4rem;
-    }
     .skill {
       color: var(--skillColor);
       font-weight: bold;
@@ -33,16 +29,58 @@ const textCase = "uppercase";
     }
   </style>
 
-  <h2>Welcome to my blog!</h2>
+  <h1
+    class="text-1xl
+    tracking-tight
+    text-balance
+    font-medium
+    font-display
+    text-black
+    md:text-4xl"
+  >
+    Welcome to my blog!
+  </h1>
 
-  <p>
-    My name's is Peter Nylander and I'm a software engineer and a solution
-    architect! I have been working with software development for over 20 years.
-    I have worked with many different technologies and platforms, but I have
-    always had a passion for Microsoft technologies. On this blog I will write
-    about my thoughts and ideas about software development and architecture. I
-    will also share some of my projects and code snippets and what I have
-    learned from on the way. I hope you will find something interesting here and
-    that you will come back for more
-  </p>
+  <h2 class="text-2xl font-bold text-gray-800 mt-4">I'm Peter Nylander</h2>
+
+  <div class="mt-8 bg-white max-w-sm shadow-lg rounded-lg overflow-hidden">
+    <div class="sm:flex sm:items-center px-6 py-4">
+      <img
+        class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0"
+        src="https://avatars.githubusercontent.com/u/8217802?s=400&u=caffab6b4cc03c5517324ed7946cb00e57a5d382&v=4"
+        alt=""
+      />
+      <div class="text-center sm:text-left sm:flex-grow">
+        <div class="mb-4">
+          <p class="text-xl leading-tight">Peter Nylander</p>
+          <p class="text-sm leading-tight text-grey-dark">
+            Software Architect at Qinshift AB.
+          </p>
+        </div>
+        <div>
+          <button
+            class="text-xs font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-purple text-purple-500 hover:bg-purple-500 hover:text-white"
+            >Message</button
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-12">
+    <p>
+      My name's is Peter Nylander and I'm a software engineer and a solution
+      architect! I have been working with software development for over 20
+      years. 
+      </p>
+      
+      <p>
+      I have worked with many different technologies and platforms, but I
+      have always had a passion for Microsoft technologies. On this blog I will
+      write about my thoughts and ideas about software development and
+      architecture. I will also share some of my projects and code snippets and
+      what I have learned from on the way. I hope you will find something
+      interesting here and that you will come back for more!
+    </p>
+  </div>
 </BaseLayout>

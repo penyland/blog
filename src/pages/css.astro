@@ -1,0 +1,72 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout pageTitle="css">
+  <h1
+    class="text-1xl
+    tracking-tight
+    text-balance
+    font-medium
+    font-display
+    text-black
+    md:text-4xl"
+  >
+    Welcome to my blog!
+  </h1>
+
+  <h2 class="text-2xl font-bold text-gray-800 mt-4">Testing tailwindcss</h2>
+
+  <h2
+    class="pt-8 text-2xl sm:text-2xl pb-8 font-bold text-left text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-sky-400"
+  >
+    Heading 2 with gradient text color from indigo to sky blue 400
+  </h2>
+
+  <div class="mt-8 bg-white max-w-sm shadow-lg rounded-lg overflow-hidden">
+    <div class="sm:flex sm:items-center px-6 py-4">
+      <img
+        class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0"
+        src="https://avatars.githubusercontent.com/u/8217802?s=400&u=caffab6b4cc03c5517324ed7946cb00e57a5d382&v=4"
+        alt=""
+      />
+      <div class="text-center sm:text-left sm:flex-grow">
+        <div class="mb-4">
+          <p class="text-xl leading-tight">Peter Nylander</p>
+          <p class="text-sm leading-tight text-grey-dark">
+            Software Architect at Qinshift AB.
+          </p>
+        </div>
+        <div>
+          <button
+            class="text-xs font-semibold rounded-full px-4 py-1 leading-normal bg-white border border-purple text-purple-500 hover:bg-purple-500 hover:text-white"
+            >Message</button
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4">
+    <div
+      class="flex items-center gap-4 rounded-lg bg-white p-6 shadow-md outline outline-black/5 dark:bg-gray-800"
+    >
+      <span
+        class="inline-flex shrink-0 rounded-full border border-pink-300 bg-pink-100 p-2 dark:border-pink-300/10 dark:bg-pink-400/10"
+      >
+        <svg class="size-6 stroke-pink-700 dark:stroke-pink-500"
+          ><!-- ... --></svg
+        >
+      </span>
+      <div>
+        <p class="text-gray-700 dark:text-gray-400">
+          <span class="font-medium text-gray-950 dark:text-white">You were</span
+          > mentioned in
+          <span class="font-medium text-gray-950 dark:text-white"
+            >Odin slack integration</span
+          >
+        </p>
+        <time class="mt-1 block text-gray-500" datetime="9:37">9:37am</time>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
