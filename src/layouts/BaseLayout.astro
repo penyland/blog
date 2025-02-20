@@ -2,6 +2,8 @@
 import Sidebar from "../components/Sidebar.astro";
 import "../styles/global.css";
 import ContentLayout from "./ContentLayout.astro";
+
+const { pageTitle } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,7 +13,7 @@ import ContentLayout from "./ContentLayout.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>{pageTitle}</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
