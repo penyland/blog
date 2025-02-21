@@ -1,5 +1,7 @@
 ---
 import config from "../config/config.json";
+import ThemeIcon from "./ThemeIcon.astro";
+import ThemeSwitcher from "./ThemeSwitcher.astro";
 ---
 
 <aside
@@ -63,9 +65,23 @@ import config from "../config/config.json";
       <a
         href="/css/"
         class="flex items-center justify-left w-full py-2 px-3 mb-2 rounded-md text-gray-600 hover:bg-blue-200 hover:text-gray-900 transition-colors duration-200 ease-in-out pl-5"
-        >
-        <i class="fa-brands fa-css3-alt mr-4"/>
+      >
+        <i class="fa-brands fa-css3-alt mr-4"></i>
         CSS</a
+      >
+      <a
+        href="/lab/"
+        class="flex items-center justify-left w-full py-2 px-3 mb-2 rounded-md text-gray-600 hover:bg-blue-200 hover:text-gray-900 transition-colors duration-200 ease-in-out pl-5"
+      >
+        <i class="fas fa-microscope mr-4"></i>
+        Dark lab</a
+      >
+      <a
+        href="/lab2/"
+        class="flex items-center justify-left w-full py-2 px-3 mb-2 rounded-md text-gray-600 hover:bg-blue-200 hover:text-gray-900 transition-colors duration-200 ease-in-out pl-5"
+      >
+        <i class="fas fa-microscope mr-4"></i>
+        Dark lab 2</a
       >
     </nav>
   </div>
@@ -101,5 +117,7 @@ import config from "../config/config.json";
     >
       <i class="fa-solid fa-rss"></i>
     </a>
+    
+    <ThemeIcon />
   </div>
 </aside>

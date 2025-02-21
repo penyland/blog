@@ -4,6 +4,7 @@ import "../styles/global.css";
 import ContentLayout from "./ContentLayout.astro";
 
 const { pageTitle } = Astro.props;
+const { frontmatter } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,19 +19,8 @@ const { pageTitle } = Astro.props;
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <script is:inline>
-      const theme = localStorage.getItem("theme");
-
-      if (
-        theme === "dark" ||
-        (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-      }
-    </script>
   </head>
-
-  <body class="flex h-screen overflow-y-auto">
+  <body class="flex h-screen overflow-y-auto dark:bg-zinc-800 bg-zinc-100">
     <!-- Left Sidebar (Sticky) -->
     <Sidebar />
 

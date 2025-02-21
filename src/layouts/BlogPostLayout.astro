@@ -18,14 +18,10 @@ const { frontmatter } = Astro.props;
       >
         {frontmatter.title}
       </h1>
-      <p>{frontmatter.date.toLocaleDateString()}</p>
+      <p class="dark:text-cyan-500">{frontmatter.date.toLocaleDateString()}</p>
     </header>
     <div class="mt-12 max-w-4xl">
-      <div
-        class="text-sm prose text-neutral-600 prose-a:font-normal prose-a:text-blue-400 hover:prose-a:text-black prose-h1:text-black prose-img:border-2 prose-img:bg-neutral-50 prose-img:border-transparent prose-h2:text-black prose-h2:font-semibold prose-p:text-sm prose-pre:font-mono max-w-none prose-pre:rounded-none prose-headings:font-display"
-      >
-        <slot />
-      </div>
+      <slot />
     </div>
     <div class="mt-12">Tags</div>
     <div class="mt-12">Share</div>
