@@ -2,9 +2,9 @@
 
 ---
 
-<div>
-  <button id="themeToggle">
-    <svg width="1.5rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<div class="flex items-center">
+  <button id="themeToggle" class="w-5 h-5 flex-no-shrink fill-current">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path
         class="sun"
         fill-rule="evenodd"
@@ -65,8 +65,8 @@
     const theme = document.documentElement.classList.contains("dark")
       ? "dark"
       : "light";
-    
-      localStorage.setItem("theme", theme);
+
+    localStorage.setItem("theme", theme);
     console.log("theme", theme);
   };
 
