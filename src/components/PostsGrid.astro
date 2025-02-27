@@ -3,13 +3,16 @@ import { getCollection } from "astro:content";
 import BlogPostCard from "./BlogPostCard.astro";
 
 const allPosts = await getCollection("posts");
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
 const { posts } = Astro.props;
 ---
 
-<div class="">
+<div class="max-w-5xl mx-auto">
   <ul class="grid grid-cols-2 gap-4 gap-y-12 lg:grid-cols-2 sm:grid-cols-1">
     {
-      allPosts.map((post, i: number) => (
+      sortedPosts.map((post, i: number) => (
         <div class={i === 0 ? "col-span-2" : ""}>
           <BlogPostCard
             author={post.data.author}
