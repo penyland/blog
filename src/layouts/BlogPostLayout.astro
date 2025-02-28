@@ -9,13 +9,9 @@ interface Props {
     coverImage: string;
     date: Date;
   };
-  headings?: {
-    slug: string;
-    text: string;
-  }[];
 }
 
-const { frontmatter, headings } = Astro.props;
+const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
@@ -38,15 +34,6 @@ const { frontmatter, headings } = Astro.props;
       </header>
       <div class="mt-12 max-w-4xl">
         <Prose>
-          <ul>
-            {
-              headings?.map((heading) => (
-                <li>
-                  <a href={`#${heading.slug}`}>{heading.text}</a>
-                </li>
-              ))
-            }
-          </ul>
           <slot />
         </Prose>
       </div>
@@ -55,6 +42,6 @@ const { frontmatter, headings } = Astro.props;
       <div class="mt-12">Prev/Next article</div>
     </article>
     
-    <RightSidebar />
+    <!-- <RightSidebar /> -->
   </div>
 </BaseLayout>
