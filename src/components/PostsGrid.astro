@@ -11,10 +11,10 @@ const { posts } = Astro.props;
 ---
 
 <div class="max-w-5xl mx-auto">
-  <ul class="grid grid-cols-2 gap-4 gap-y-12 lg:grid-cols-2 sm:grid-cols-1">
+  <ul class="grid lg:gap-4 gap-y-12 lg:grid-cols-2 md:grid-cols-1">
     {
       sortedPosts.map((post, i: number) => (
-        <div class={i === 0 ? "col-span-2" : ""}>
+        <div class={i === 0 ? "lg:col-span-2 md:col-span-1" : ""}>
           <BlogPostCard
             author={post.data.author}
             url={"/posts/" + post.id}
