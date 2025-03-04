@@ -7,14 +7,14 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <div class="mt-12 2xl:mt-0">
+  <div class="">
     <article class="max-w-5xl mx-auto">
       <header>
         <div class="w-full">
           {
             frontmatter.coverImage && (
               <img
-                class="w-full h-64 object-contain rounded-lg p-8 bg-gradient-to-r dark:from-indigo-600 dark:to-sky-400 from-indigo-300 to-sky-100 mb-4"
+                class="w-full h-64 object-contain rounded-lg p-8 bg-gradient-to-r dark:from-indigo-600 dark:to-sky-400 from-indigo-300 to-sky-100 mb-4 shadow-2xl"
                 src={frontmatter.coverImage}
                 alt={frontmatter.title}
               />
