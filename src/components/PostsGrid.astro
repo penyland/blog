@@ -4,7 +4,9 @@ import BlogPostCard from "./BlogPostCard.astro";
 import Footer from "./Footer.astro";
 
 const allPosts = await getCollection("posts");
-const sortedPosts = allPosts.sort(
+const sortedPosts = allPosts
+.filter((post) => !post.data.draft)
+.sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 const { posts } = Astro.props;
