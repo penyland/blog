@@ -1,5 +1,5 @@
 ---
-import Sidebar from "../components/Sidebar.astro";
+import ThemeIcon from "../components/ThemeIcon.astro";
 import "../styles/global.css";
 
 const { pageTitle } = Astro.props;
@@ -9,7 +9,7 @@ const { pageTitle } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
@@ -19,22 +19,28 @@ const { pageTitle } = Astro.props;
     />
     <script is:inline>
       const theme = localStorage.getItem("theme");
+      console.log("theme is", theme);
 
-      if (
-        theme === "dark" ||
-        (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
+      if (theme === "dark") {
         document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
       }
+
+      // if (
+      //   theme === "dark" ||
+      //   (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      // ) {
+      //   document.documentElement.classList.add("dark");
+      // }
     </script>
   </head>
 
-  <body class="flex h-screen overflow-y-auto dark:bg-neutral-900 bg-white">
-    <!-- Left Sidebar (Sticky) -->
-    <Sidebar />
-
-    <!-- Main Content + Right Sidebar Container -->
+  <body
+    class="w-full max-w-screen-md mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300"
+  >
     <main id="main-content" class="flex-1 p-8 overflow-y-auto">
+      <ThemeIcon />
       <slot />
     </main>
   </body>

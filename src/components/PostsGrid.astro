@@ -1,29 +1,32 @@
 ---
 import { getCollection } from "astro:content";
-import "../styles/global.css";
-import BlogEntry from "./BlogEntry.astro";
+import BlogPostCard from "./BlogPostCard.astro";
+import Footer from "./Footer.astro";
 
 const allPosts = await getCollection("posts");
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
 const { posts } = Astro.props;
 ---
 
-<div class="">
-  <ul
-    class="grid grid-cols-2 gap-4 gap-y-12 lg:grid-cols-2 sm:grid-cols-1"
-  >
+<div class="max-w-5xl mx-auto">
+  <ul class="grid grid-cols-2 gap-4 gap-y-12 lg:grid-cols-2 sm:grid-cols-1">
     {
-      allPosts.map((post, i: number) => (
+      sortedPosts.map((post, i: number) => (
         <div class={i === 0 ? "col-span-2" : ""}>
-        <BlogEntry
-          author={post.data.author}
-          url={"/posts/" + post.id}
-          title={post.data.title}
-          description={post.data.description}
-          date={post.data.date.toString().slice(0, 10)}
-          coverImage={post.data.coverImage}
-        />
+          <BlogPostCard
+            author={post.data.author}
+            url={"/posts/" + post.id}
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date.toString().slice(0, 10)}
+            coverImage={post.data.coverImage}
+          />
         </div>
       ))
     }
   </ul>
+
+  <Footer />
 </div>

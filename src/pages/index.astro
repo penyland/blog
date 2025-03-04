@@ -9,8 +9,8 @@ const allPosts = await getCollection("posts");
 ---
 
 <BaseLayout pageTitle=`${config.site.title} - ${config.site.tagline}`>
-  <section class="section">
-    <div class="container">
+  <section class="">
+    <div class="">
       <PostsGrid posts={allPosts} />
     </div>
   </section>

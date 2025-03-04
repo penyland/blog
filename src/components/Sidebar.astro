@@ -1,10 +1,12 @@
 ---
 import config from "../config/config.json";
+import ThemeIcon from "./ThemeIcon.astro";
+import ThemeSwitcher from "./ThemeSwitcher.astro";
 ---
 
 <aside
   id="sidebar"
-  class="w-64 bg-gray-200 p-4 h-screen sticky top-0 flex flex-col justify-between shadow-lg"
+  class="w-64 bg-gray-200 dark:bg-neutral-800 p-4 h-screen sticky top-0 flex flex-col justify-between shadow-lg"
 >
   <!-- Sidebar content here -->
   <header class="flex flex-col items-center">
@@ -14,15 +16,17 @@ import config from "../config/config.json";
       class="w-32 h-32 rounded-full object-cover mt-10 shadow-lg"
       style="object-position: 50% 0%;"
     />
-    <h1 class="text-lg mt-4">penyland</h1>
-    <p class="text-sm text-gray-600 p-6">{config.site.tagline}</p>
+    <h1 class="text-lg mt-4 dark:text-sky-500">penyland</h1>
+    <p class="text-sm text-gray-600 dark:text-sky-500 p-6">
+      {config.site.tagline}
+    </p>
   </header>
 
   <div class="flex flex-col items-center justify-left mt-6">
     <nav class="flex flex-col items-center w-full">
       <a
         href="/"
-        class="flex items-center justify-left w-full py-2 px-3 mb-2 rounded-md text-gray-600 hover:bg-blue-200 hover:text-gray-900 transition-colors duration-200 ease-in-out pl-5"
+        class="flex items-center justify-left w-full py-2 px-3 mb-2 rounded-md dark:text-sky-600 text-gray-600 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-200 ease-in-out pl-5"
       >
         <svg
           class="w-5 h-5 mr-2"
@@ -42,7 +46,7 @@ import config from "../config/config.json";
       </a>
       <a
         href="/about/"
-        class="flex items-center justify-left w-full py-2 px-3 mb-2 rounded-md text-gray-600 hover:bg-blue-200 hover:text-gray-900 transition-colors duration-200 ease-in-out pl-5"
+        class="flex items-center justify-left w-full py-2 px-3 mb-2 rounded-md dark:text-sky-600 text-gray-600 hover:bg-sky-500 hover:text-gray-900 transition-colors duration-200 ease-in-out pl-5"
       >
         <svg
           class="w-5 h-5 mr-2"
@@ -60,13 +64,6 @@ import config from "../config/config.json";
         </svg>
         About
       </a>
-      <a
-        href="/css/"
-        class="flex items-center justify-left w-full py-2 px-3 mb-2 rounded-md text-gray-600 hover:bg-blue-200 hover:text-gray-900 transition-colors duration-200 ease-in-out pl-5"
-        >
-        <i class="fa-brands fa-css3-alt mr-4"/>
-        CSS</a
-      >
     </nav>
   </div>
 
@@ -101,5 +98,7 @@ import config from "../config/config.json";
     >
       <i class="fa-solid fa-rss"></i>
     </a>
+
+    <ThemeIcon />
   </div>
 </aside>

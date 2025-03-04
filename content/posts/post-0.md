@@ -4,7 +4,7 @@ meta_title: ""
 description: "meta description"
 date: 2025-02-11T22:45:00Z
 image: "/images/fhc1_fhc.svg"
-coverImage: "/images/fhc1_fhc.svg"
+coverImage: "/profile_picture.jpg"
 categories: ["about"]
 author: "Peter Nylander"
 tags: ["about"]

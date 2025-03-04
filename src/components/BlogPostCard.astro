@@ -3,11 +3,11 @@ const { url, title, description, date, author, coverImage } = Astro.props;
 ---
 
 <li
-  class="shadow rounded-lg bg-white overflow-hidden group hover:shadow-lg h-full transition duration-300"
+  class="bg-neutral-50 dark:bg-neutral-800 shadow rounded-lg overflow-hidden group hover:shadow-lg h-full transition duration-300"
 >
   <a href={url} title={title} class="group">
-    <article class="flex-1 h-full flex flex-col">
-      <div class="block w-full">
+    <article>
+      <div>
         <img
           class="object-scale-down bg-center h-64 w-full group-hover:scale-[1.03] transition duration-300"
           src={coverImage}
@@ -19,16 +19,16 @@ const { url, title, description, date, author, coverImage } = Astro.props;
       >
         <div>
           <div class="inline-flex space-x-1 items-center">
-            <p class="text-xs font-medium text-black">{author}</p>
-            <div class="flex text-xs text-zinc-400">
+            <p class="text-xs font-medium text-black dark:text-white">{author}</p>
+            <div class="flex text-xs text-zinc-400 dark:text-zinc-200">
               <time datetime="2020-03-16">{date}</time>
             </div>
           </div>
-          <p class="text-black mt-2 font-display text-xl text-pretty">
+          <p class="text-black dark:text-white mt-2 font-display text-xl text-pretty">
             {title}
           </p>
         </div>
-        <p class="mt-4 text-sm text-zinc-500 line-clamp-2">{description}</p>
+        <p class="mt-4 text-sm text-zinc-500 dark:text-zinc-200 line-clamp-2">{description}</p>
       </div>
     </article>
   </a>
