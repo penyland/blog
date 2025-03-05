@@ -8,9 +8,9 @@ import config from "../config/config.json";
 const allPosts = await getCollection("posts");
 ---
 
-<BaseLayout pageTitle=`${config.site.title} - ${config.site.tagline}`>
-  <section class="section">
-    <div class="container">
+<BaseLayout pageTitle=`${config.site.title}`>
+  <section>
+    <div>
       <PostsGrid posts={allPosts} />
     </div>
   </section>

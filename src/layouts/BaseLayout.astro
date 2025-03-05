@@ -1,7 +1,8 @@
 ---
+import Footer from "../components/Footer.astro";
 import Sidebar from "../components/Sidebar.astro";
+import Topbar from "../components/Topbar.astro";
 import "../styles/global.css";
-import ContentLayout from "./ContentLayout.astro";
 
 const { pageTitle } = Astro.props;
 ---
@@ -10,7 +11,7 @@ const { pageTitle } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
@@ -18,16 +19,28 @@ const { pageTitle } = Astro.props;
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
+    <script is:inline>
+      const theme = localStorage.getItem("theme");
+
+      if (
+        theme === "dark" ||
+        (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
   </head>
-  <body class="flex h-screen overflow-y-auto bg-zinc-100">
+
+  <body class="flex h-screen overflow-y-auto dark:bg-neutral-900 bg-white">
+    <!-- Topbar -->
+    <Topbar pageTitle={pageTitle} />
+
     <!-- Left Sidebar (Sticky) -->
     <Sidebar />
 
     <!-- Main Content + Right Sidebar Container -->
-    <main id="main-content" class="flex-1 p-8 overflow-y-auto">
-      <ContentLayout>
-        <slot />
-      </ContentLayout>
+    <main id="main-content" class="flex-1 overflow-y-auto transition-all duration-300 ease-in-out lg:ml-64 mt-16 px-4">
+      <slot />
     </main>
   </body>
 </html>

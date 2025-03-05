@@ -1,105 +1,102 @@
 ---
 import config from "../config/config.json";
 ---
-
+<!-- Sidebar -->
 <aside
-  id="sidebar"
-  class="w-64 bg-gray-200 p-4 h-screen sticky top-0 flex flex-col justify-between shadow-lg"
+  class="peer-checked:translate-x-0 lg:translate-x-0 transition-transform duration-300 ease-in-out
+           fixed inset-y-0 left-0 z-20 shadow-lg w-64 -translate-x-full bg-gray-200 dark:bg-neutral-800 p-4"
 >
-  <!-- Sidebar content here -->
-  <header class="flex flex-col items-center">
-    <img
-      src={config.site.profile_picture}
-      alt="Logo"
-      class="w-32 h-32 rounded-full object-cover mt-10 shadow-lg"
-      style="object-position: 50% 0%;"
-    />
-    <h1 class="text-lg mt-4">penyland</h1>
-    <p class="text-sm text-gray-600 p-6">{config.site.tagline}</p>
-  </header>
+  <div class="flex flex-col h-screen sticky top-0 justify-between p-8">
+    <!-- Sidebar content here -->
+    <header class="flex flex-col items-center">
+      <img
+        src={config.site.profile_picture}
+        alt="Logo"
+        class="w-32 h-32 rounded-full object-cover mt-10 shadow-lg"
+        style="object-position: 50% 0%;"
+      />
+      <h1 class="text-lg mt-4 dark:text-sky-500">penyland</h1>
+      <p class="text-sm text-gray-600 dark:text-sky-500 p-6">
+        {config.site.tagline}
+      </p>
+    </header>
 
-  <div class="flex flex-col items-center justify-left mt-6">
-    <nav class="flex flex-col items-center w-full">
-      <a
-        href="/"
-        class="flex items-center justify-left w-full py-2 px-3 mb-2 rounded-md text-gray-600 hover:bg-blue-200 hover:text-gray-900 transition-colors duration-200 ease-in-out pl-5"
-      >
-        <svg
-          class="w-5 h-5 mr-2"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
+    <div class="flex flex-col items-center justify-left mt-6">
+      <nav class="flex flex-col items-center w-full">
+        <a
+          href="/"
+          class="flex items-center justify-left w-full py-2 px-3 mb-2 rounded-md dark:text-sky-600 text-gray-600 hover:bg-sky-600 hover:text-gray-900 transition-colors duration-200 ease-in-out pl-5"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-          ></path>
-        </svg>
-        Home
+          <svg
+            class="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+            ></path>
+          </svg>
+          Home
+        </a>
+        <a
+          href="/posts/about/"
+          class="flex items-center justify-left w-full py-2 px-3 mb-2 rounded-md dark:text-sky-600 text-gray-600 hover:bg-sky-600 hover:text-gray-900 transition-colors duration-200 ease-in-out pl-5"
+        >
+          <svg
+            class="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          About
+        </a>
+      </nav>
+    </div>
+
+    <!-- Social media icons -->
+    <!-- <div class="flex justify-center gap-4 mb-4"> -->
+    <div class="mt-auto flex justify-center gap-4">
+      <a
+        href="https://github.com/penyland"
+        target="_blank"
+        class="text-lg text-gray-600 hover:text-gray-900 hover:dark:text-sky-700"
+      >
+        <i class="fa-brands fa-github"></i>
       </a>
       <a
-        href="/about/"
-        class="flex items-center justify-left w-full py-2 px-3 mb-2 rounded-md text-gray-600 hover:bg-blue-200 hover:text-gray-900 transition-colors duration-200 ease-in-out pl-5"
+        href="https://twitter.com/peternylander"
+        target="_blank"
+        class="text-lg text-gray-600 hover:text-gray-900 hover:dark:text-sky-700"
       >
-        <svg
-          class="w-5 h-5 mr-2"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          ></path>
-        </svg>
-        About
+        <i class="fa-brands fa-twitter"></i>
       </a>
       <a
-        href="/css/"
-        class="flex items-center justify-left w-full py-2 px-3 mb-2 rounded-md text-gray-600 hover:bg-blue-200 hover:text-gray-900 transition-colors duration-200 ease-in-out pl-5"
-        >
-        <i class="fa-brands fa-css3-alt mr-4"/>
-        CSS</a
+        href="https://bsky.app/profile/peternylander.bsky.social"
+        target="_blank"
+        class="text-lg text-gray-600 hover:text-gray-900 inline-block hover:dark:text-sky-700"
       >
-    </nav>
-  </div>
-
-  <!-- Social media icons -->
-  <!-- <div class="flex justify-center gap-4 mb-4"> -->
-  <div class="mt-auto flex justify-center gap-4">
-    <a
-      href="https://github.com/penyland"
-      target="_blank"
-      class="text-lg text-gray-600 hover:text-gray-900"
-    >
-      <i class="fa-brands fa-github"></i>
-    </a>
-    <a
-      href="https://twitter.com/peternylander"
-      target="_blank"
-      class="text-lg text-gray-600 hover:text-gray-900"
-    >
-      <i class="fa-brands fa-twitter"></i>
-    </a>
-    <a
-      href="https://bsky.app/profile/peternylander.bsky.social"
-      target="_blank"
-      class="text-lg text-gray-600 hover:text-gray-900 inline-block"
-    >
-      <i class="fa-brands fa-bluesky"></i>
-    </a>
-    <a
-      href="https://penyland.github.io/rss"
-      target="_blank"
-      class="text-lg text-gray-600 hover:text-gray-900"
-    >
-      <i class="fa-solid fa-rss"></i>
-    </a>
+        <i class="fa-brands fa-bluesky"></i>
+      </a>
+      <a
+        href="https://penyland.github.io/rss"
+        target="_blank"
+        class="text-lg text-gray-600 hover:text-gray-900 hover:dark:text-sky-700"
+      >
+        <i class="fa-solid fa-rss"></i>
+      </a>
+    </div>
   </div>
 </aside>

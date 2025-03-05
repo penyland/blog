@@ -1,0 +1,34 @@
+---
+import Sidebar from "../components/Sidebar.astro";
+import "../styles/global.css";
+import ContentLayout from "./ContentLayout.astro";
+
+const { pageTitle } = Astro.props;
+const { frontmatter } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body class="flex h-screen overflow-y-auto dark:bg-zinc-800 bg-zinc-100">
+    <!-- Left Sidebar (Sticky) -->
+    <Sidebar />
+
+    <!-- Main Content + Right Sidebar Container -->
+    <main id="main-content" class="flex-1 p-8 overflow-y-auto">
+      <ContentLayout>
+        <slot />
+      </ContentLayout>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+
+@layer base {
+  /* Add base styles here */
+  :root {
+    --background: bg-zinc-100;
+  }
+  .dark {
+    --background: bg-zinc-900;
+  }
+}
+
+@theme {
+  --font-sans: "Segeo UI", sans-serif;
+  --font-display: "Gilda Display", sans-serif;
+  --font-mono: "Cascadia Code", monospace;
+  /* Colors */
+  --color-blue-50: #ebebff;
+  --color-blue-100: #d2d2fe;
+  --color-blue-200: #a6a4fe;
+  --color-blue-300: #7e7cfd;
+  --color-blue-400: #524ffd;
+  --color-blue-500: #2522fc;
+  --color-blue-600: #0703e2;
+  --color-blue-700: #0502ab;
+  --color-blue-800: #03026f;
+  --color-blue-900: #020137;
+  --color-blue-950: #01001e;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* CSS */
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+
+  /* Use variable font if supported */
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    
+    /* Optional, if you also want font styles */
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+}
