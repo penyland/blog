@@ -24,11 +24,10 @@ const { posts } = Astro.props;
             description={post.data.description}
             date={post.data.date.toString().slice(0, 10)}
             coverImage={post.data.coverImage}
+            headerText={post.data.headerText}
           />
         </div>
       ))
     }
   </ul>
-
-  <Footer />
 </div>

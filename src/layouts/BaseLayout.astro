@@ -1,5 +1,7 @@
 ---
+import Footer from "../components/Footer.astro";
 import Sidebar from "../components/Sidebar.astro";
+import Topbar from "../components/Topbar.astro";
 import "../styles/global.css";
 
 const { pageTitle } = Astro.props;
@@ -30,14 +32,14 @@ const { pageTitle } = Astro.props;
   </head>
 
   <body class="flex h-screen overflow-y-auto dark:bg-neutral-900 bg-white">
+    <!-- Topbar -->
+    <Topbar pageTitle={pageTitle} />
+
     <!-- Left Sidebar (Sticky) -->
     <Sidebar />
 
     <!-- Main Content + Right Sidebar Container -->
-    <main
-      id="main-content"
-      class="flex-1 overflow-y-auto transition-all duration-300 ease-in-out lg:ml-64 mt-16 px-4"
-    >
+    <main id="main-content" class="flex-1 overflow-y-auto transition-all duration-300 ease-in-out lg:ml-64 mt-16 px-4">
       <slot />
     </main>
   </body>

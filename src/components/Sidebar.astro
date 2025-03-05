@@ -1,38 +1,10 @@
 ---
 import config from "../config/config.json";
-import ThemeIcon from "./ThemeIcon.astro";
-import ThemeSwitcher from "./ThemeSwitcher.astro";
 ---
-
-<!-- Hamburger Button (mobile only) -->
-<input type="checkbox" id="sidebar-toggle" class="peer hidden" />
-<div class="fixed top-3 right-4 z-50 flex align-top">
-  <ThemeIcon />
-
-  <label
-    for="sidebar-toggle"
-    class="hover:bg-gray-100 rounded-lg cursor-pointer dark:text-white ml-4 transition-color duration-300 ease-in-out lg:hidden"
-  >
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M4 6h16M4 12h16M4 18h16"></path>
-    </svg>
-  </label>
-</div>
-<!-- Overlay (clickable background) -->
-<div
-  class="fixed inset-0 bg-black/50 peer-checked:block hidden z-40 md:hidden"
-  onclick="document.getElementById('sidebar-toggle').checked = false;"
->
-</div>
-
 <!-- Sidebar -->
 <aside
   class="peer-checked:translate-x-0 lg:translate-x-0 transition-transform duration-300 ease-in-out
-           fixed inset-y-0 left-0 z-45 shadow-lg w-64 -translate-x-full bg-gray-200 dark:bg-neutral-800 p-4"
+           fixed inset-y-0 left-0 z-20 shadow-lg w-64 -translate-x-full bg-gray-200 dark:bg-neutral-800 p-4"
 >
   <div class="flex flex-col h-screen sticky top-0 justify-between p-8">
     <!-- Sidebar content here -->
@@ -72,7 +44,7 @@ import ThemeSwitcher from "./ThemeSwitcher.astro";
           Home
         </a>
         <a
-          href="/about/"
+          href="/posts/about/"
           class="flex items-center justify-left w-full py-2 px-3 mb-2 rounded-md dark:text-sky-600 text-gray-600 hover:bg-sky-600 hover:text-gray-900 transition-colors duration-200 ease-in-out pl-5"
         >
           <svg
@@ -100,28 +72,28 @@ import ThemeSwitcher from "./ThemeSwitcher.astro";
       <a
         href="https://github.com/penyland"
         target="_blank"
-        class="text-lg text-gray-600 hover:text-gray-900"
+        class="text-lg text-gray-600 hover:text-gray-900 hover:dark:text-sky-700"
       >
         <i class="fa-brands fa-github"></i>
       </a>
       <a
         href="https://twitter.com/peternylander"
         target="_blank"
-        class="text-lg text-gray-600 hover:text-gray-900"
+        class="text-lg text-gray-600 hover:text-gray-900 hover:dark:text-sky-700"
       >
         <i class="fa-brands fa-twitter"></i>
       </a>
       <a
         href="https://bsky.app/profile/peternylander.bsky.social"
         target="_blank"
-        class="text-lg text-gray-600 hover:text-gray-900 inline-block"
+        class="text-lg text-gray-600 hover:text-gray-900 inline-block hover:dark:text-sky-700"
       >
         <i class="fa-brands fa-bluesky"></i>
       </a>
       <a
         href="https://penyland.github.io/rss"
         target="_blank"
-        class="text-lg text-gray-600 hover:text-gray-900"
+        class="text-lg text-gray-600 hover:text-gray-900 hover:dark:text-sky-700"
       >
         <i class="fa-solid fa-rss"></i>
       </a>

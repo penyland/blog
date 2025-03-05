@@ -1,5 +1,6 @@
 ---
-const { url, title, description, date, author, coverImage } = Astro.props;
+const { url, title, description, date, author, coverImage, headerText } =
+  Astro.props;
 ---
 
 <li
@@ -8,27 +9,43 @@ const { url, title, description, date, author, coverImage } = Astro.props;
   <a href={url} title={title} class="group">
     <article>
       <div>
-        <img
-          class="object-scale-down bg-center h-64 w-full group-hover:scale-[1.03] transition duration-300"
-          src={coverImage}
-          alt={title}
-        />
+        {
+          coverImage ? (
+            <img
+              class="object-scale-down bg-center h-64 w-full group-hover:scale-[1.03] transition duration-300"
+              src={coverImage}
+              alt={title}
+            />
+          ) : (
+            <div class="bg-gradient-to-r dark:from-indigo-800 dark:to-sky-400 from-indigo-300 to-sky-100 h-64 w-full flex items-center justify-center">
+              <h1 class="text-center text-5xl font-bold text-neutral-700 dark:text-white group-hover:scale-[1.03] transition duration-300">
+                {headerText}
+              </h1>
+            </div>
+          )
+        }
       </div>
       <div
         class="flex flex-col items-start justify-between h-full flex-1 w-full p-4"
       >
         <div>
           <div class="inline-flex space-x-1 items-center">
-            <p class="text-xs font-medium text-black dark:text-white">{author}</p>
+            <p class="text-xs font-medium text-black dark:text-white">
+              {author}
+            </p>
             <div class="flex text-xs text-zinc-400 dark:text-zinc-200">
               <time datetime="2020-03-16">{date}</time>
             </div>
           </div>
-          <p class="text-black dark:text-white mt-2 font-display text-xl text-pretty">
+          <p
+            class="text-black dark:text-white mt-2 font-display text-xl text-pretty"
+          >
             {title}
           </p>
         </div>
-        <p class="mt-4 text-sm text-zinc-500 dark:text-zinc-200 line-clamp-2">{description}</p>
+        <p class="mt-4 text-sm text-zinc-500 dark:text-zinc-200 line-clamp-2">
+          {description}
+        </p>
       </div>
     </article>
   </a>

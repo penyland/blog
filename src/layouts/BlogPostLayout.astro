@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/Footer.astro";
 import Prose from "../components/Prose.astro";
 import RightSidebar from "../components/RightSidebar.astro";
 import BaseLayout from "./BaseLayout.astro";
@@ -12,12 +13,17 @@ const { frontmatter } = Astro.props;
       <header>
         <div class="w-full">
           {
-            frontmatter.coverImage && (
+            frontmatter.coverImage ? (
               <img
                 class="w-full h-64 object-contain rounded-lg p-8 bg-gradient-to-r dark:from-indigo-600 dark:to-sky-400 from-indigo-300 to-sky-100 mb-4 shadow-2xl"
                 src={frontmatter.coverImage}
                 alt={frontmatter.title}
               />
+            ):
+            (
+              <div class="w-full h-64 bg-gradient-to-r dark:from-indigo-600 dark:to-sky-400 from-indigo-300 to-sky-100 mb-4 shadow-2xl">
+                <h1 class="text-center text-2xl font-bold">{frontmatter.headerText}</h1>
+              </div>
             )
           }
         </div>
@@ -38,6 +44,8 @@ const { frontmatter } = Astro.props;
         <Prose>
           <slot />
         </Prose>
+
+        <Footer />
       </div>
       <!-- <div class="mt-12">Tags</div>
       <div class="mt-12">Share</div>
