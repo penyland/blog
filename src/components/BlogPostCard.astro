@@ -19,7 +19,7 @@ const { url, title, description, date, author, coverImage, headerText } =
           ) : (
             <div class="bg-gradient-to-r dark:from-indigo-800 dark:to-sky-400 from-indigo-300 to-sky-100 h-64 w-full flex items-center justify-center">
               <h1 class="text-center text-5xl font-bold text-neutral-700 dark:text-white group-hover:scale-[1.03] transition duration-300">
-                {headerText}
+                {headerText ? headerText : title}
               </h1>
             </div>
           )
