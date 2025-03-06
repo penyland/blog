@@ -65,9 +65,9 @@ docker run `
 -d `
 --name sqlcontainerwsl `
 --hostname sqlcontainerwsl `
--v ${pwd}:/var/opt/mssql/data `
--v ${pwd}:/var/opt/mssql/log `
--v ${pwd}:/var/opt/mssql/secrets `
+-v ${pwd}/data:/var/opt/mssql/data `
+-v ${pwd}/log:/var/opt/mssql/log `
+-v ${pwd}/secrets:/var/opt/mssql/secrets `
 mcr.microsoft.com/mssql/server:2022-latest
 ```
 
@@ -76,7 +76,7 @@ mcr.microsoft.com/mssql/server:2022-latest
 ## Connect to SQL Server
 Start by running SQL Server Management Studio (SSMS) and connect to the SQL Server instance running in the container. Use `localhost` as the server name, you don't need to specify a port if you are using the default port `1433`, `sa` as the login, and the password you set in the `MSSQL_SA_PASSWORD` environment variable.
 
-![alt text](image.png)
+![alt text](2025-02-27-sql-server-using-docker-01.png)
 
 When you are connected, you can start working with SQL Server as you would with a regular installation.
 

@@ -1,10 +1,10 @@
 ---
-title: "Hello and welcome to my blog!"
+title: "Hello and welcome!"
 meta_title: ""
 description: ""
 date: 2025-01-01T00:00:00Z
 coverImage: ""
-headerText: "Hello!"
+headerText2: "Hello!"
 categories: ["about"]
 author: "Peter Nylander"
 tags: ["about"]

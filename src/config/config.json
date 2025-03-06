@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Peter Nylanders blog",
+    "title": "penyland",
     "base_url": "https://penyland.github.io/",
     "base_path": "/",
     "trailing_slash": false,
@@ -9,7 +9,7 @@
     "logo_width": "500",
     "logo_height": "34",
     "tagline": "A tale of passion of code! And beer and heavy metal!",
-    "profile_picture": "/profile_picture.jpg"
+    "profile_picture": "/images/profile_picture.jpg"
   },
   "settings": {
     "pagination": 10,

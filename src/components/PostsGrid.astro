@@ -12,7 +12,7 @@ const sortedPosts = allPosts
 const { posts } = Astro.props;
 ---
 
-<div class="max-w-5xl mx-auto">
+<div class="max-w-5xl mx-auto mt-5">
   <ul class="grid lg:gap-4 gap-y-12 lg:grid-cols-2 md:grid-cols-1">
     {
       sortedPosts.map((post, i: number) => (
@@ -30,4 +30,6 @@ const { posts } = Astro.props;
       ))
     }
   </ul>
+
+  <Footer />
 </div>
