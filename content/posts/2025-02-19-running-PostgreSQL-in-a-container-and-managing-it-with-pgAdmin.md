@@ -5,13 +5,13 @@ description: "In this post, we will look at how to run a PostgreSQL database and
 This is a great way to get started with PostgreSQL without having to install it on your local machine."
 date: 2025-02-19T19:53:00Z
 image: "/images/fhc1_fhc.svg"
-coverImage: "/images/fhc1_fhc.svg"
+coverImage: /images/postgresql-icon.svg
 categories: ["containers", "postgres", "databases"]
 author: "Peter Nylander"
 tags: ["docker", "podman", "postgresql", "databases"]
 draft: false
 ---
-
+![alt text](../../public/images/postgresql-icon.svg)
 In this post, we will look at how to run a PostgreSQL database and pgAdmin in containers on your local machine.
 This is a great way to get started with PostgreSQL without having to install it on your local machine.
 

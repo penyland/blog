@@ -9,39 +9,38 @@ const { pageTitle } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Topbar</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <script is:inline>
-      const theme = localStorage.getItem("theme");
-      console.log("theme is", theme);
-
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-
-      // if (
-      //   theme === "dark" ||
-      //   (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-      // ) {
-      //   document.documentElement.classList.add("dark");
-      // }
-    </script>
   </head>
+  <body>
+    <div
+      class="fixed top-0 w-full bg-transparent backdrop-blur-lg p-4 flex items-center"
+    >
+      <!-- Left aligned sun icon -->
+      <div class="flex-1 text-gray-600">
+        <i class="fas fa-bars"></i>
+      </div>
+      <!-- Center text that truncates on small screens -->
+      <div class="flex-1 text-center truncate">
+        <span>Your Truncated Text Here and it's very long indeed.</span>
+      </div>
+      <!-- Right aligned hamburger icon -->
+      <div class="flex-1 text-right"></div>
+      <i class="fa-brands fa-github"></i>
+    </div>
 
-  <body
-    class="w-full max-w-screen-md mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300"
-  >
-    <main id="main-content" class="flex-1 p-8 overflow-y-auto">
-      <ThemeIcon />
-      <slot />
-    </main>
+    <!-- List of items under the topbar -->
+    <div class="pt-16">
+      <ul>
+        <li class="p-4 border-b">Item 1</li>
+        <li class="p-4 border-b">Item 2</li>
+        <li class="p-4 border-b">Item 3</li>
+        <!-- Add more items as needed -->
+      </ul>
+    </div>
   </body>
 </html>

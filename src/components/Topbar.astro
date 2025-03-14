@@ -19,7 +19,7 @@ const { pageTitle } = Astro.props;
   </div>
   <!-- Center text that truncates on small screens -->
   <div
-    class="flex-grow text-center truncate font-semibold lg:hidden dark:text-white text-neutral-400"
+    class="flex-grow text-center truncate font-semibold lg:text-transparent lg:dark:text-transparent dark:text-white text-neutral-400"
   >
     <a href="/">
       <span>{pageTitle}</span>

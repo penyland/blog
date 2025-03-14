@@ -4,7 +4,7 @@ meta_title: ""
 description: "meta description"
 date: 2025-02-16T22:45:00Z
 image: "/images/fhc1_fhc.svg"
-coverImage: "/images/fhc1_fhc.svg"
+coverImage: "/images/podman-logo-full-vert.png"
 categories: ["containers"]
 author: "Peter Nylander"
 tags: ["docker", "podman"]
