@@ -42,17 +42,15 @@
   })();
 
   if (currentTheme === "light") {
-    document.documentElement.classList.remove("dark");
+    document.firstElementChild.setAttribute("data-theme", "light");
   } else {
-    document.documentElement.classList.add("dark");
+    document.firstElementChild.setAttribute("data-theme", "dark");
   }
 
   const handleToggleClick = () => {
-    document.documentElement.classList.toggle("dark");
-    const theme = document.documentElement.classList.contains("dark")
-      ? "dark"
-      : "light";
-
+    const currentTheme = document.firstElementChild.getAttribute("data-theme");
+    const theme = currentTheme === "dark" ? "light" : "dark";
+    document.firstElementChild.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
     console.log("theme", theme);
   };
