@@ -11,7 +11,10 @@ import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 export default defineConfig({
   markdown: {
     shikiConfig: {
-
+      themes: {
+        light: 'everforest-light',
+        dark: 'slack-dark'
+      },
       wrap: true
     }
   },
@@ -26,7 +29,7 @@ export default defineConfig({
         wrap: true,
       },
       plugins: [pluginLineNumbers()],
-      themes: ['vitesse-dark', 'github-light'],
+      themes: ['nord', 'github-light'],
       themeCssSelector: (theme) => {
         let siteTheme = theme.name === 'vitesse-dark' ? '[data-theme="dark"]' : '[data-theme="light"]';
         console.log('siteTheme:', siteTheme);
