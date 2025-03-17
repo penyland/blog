@@ -29,13 +29,9 @@ export default defineConfig({
         wrap: true,
       },
       plugins: [pluginLineNumbers()],
-      themes: ['nord', 'github-light'],
+      themes: ['nord', 'snazzy-light'],
       themeCssSelector: (theme) => {
-        let siteTheme = theme.name === 'vitesse-dark' ? '[data-theme="dark"]' : '[data-theme="light"]';
-        console.log('siteTheme:', siteTheme);
-        console.log('name:', theme.name, 'type:', theme.type);
-
-        return siteTheme;
+        return '[data-theme="light"]';
       },
       styleOverrides: {
         codeFontFamily: 'Cascadia Code'
