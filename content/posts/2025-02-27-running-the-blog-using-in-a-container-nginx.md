@@ -8,7 +8,7 @@ coverImage: "/images/nginx.svg"
 categories: ["containers", "nginx"]
 author: "Peter Nylander"
 tags: ["docker", "nginx", "containers"]
-draft: false
+draft: true
 ---
 
 ## Introduction
@@ -65,3 +65,31 @@ docker run --name nginx-astro -p 80:80 -v ${pwd}/dist:/usr/share/nginx/html -v $
 ```
 
 The custom configuration file is mounted to `/etc/nginx/nginx.conf` in the container overriding the default configuration file.
+
+## Building the image
+If you want to build the image yourself, you can create a `Dockerfile` in the root of the blog with the following content.
+```Dockerfile
+FROM node:lts AS build
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine AS runtime
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+```
+
+The dockerfile consists of two stages. The first stage builds the blog, and the second stage copies the built blog to the NGINX image.
+The build stage uses the `node:lts` image, which is a Node.js image with the latest LTS version of Node.js installed. Then the working directory is set to `/app` in the container, `package.json` and `package-lock.json` is copied to the container, the dependencies are installed, and the blog is built.
+
+In the second stage, the `nginx:alpine` image is used, which is a lightweight NGINX image based on Alpine Linux.
+The built blog is copied from the build stage to `/usr/share/nginx/html` in the container. This is the default location for the NGINX web server.
+At last, port 80 is exposed to allow HTTP traffic to the container.
+
+To build the image, run the following command.
+```sh
+docker build -t my-blog .
+```
