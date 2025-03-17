@@ -17,17 +17,17 @@ Link: https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-doc
 
 ## Pull and run the SQL Server Linux container image
 To run SQL Server in a Docker container, you need to pull the SQL Server Linux container image from the Microsoft Container Registry. You can do this by running the following command.
-```sh
+```sh showLineNumbers=false
 docker pull mcr.microsoft.com/mssql/server:2022-latest
 ```
 
 As I want to persist the data in the container, I have to create a volume to store the data.
-```sh
+```sh showLineNumbers=false
 docker volume create sqldb-data
 ```
 
 Run the container use the following command.
-```powershell
+```powershell frame="code" showLineNumbers
 docker run `
 -e "ACCEPT_EULA=Y" `
 -e "MSSQL_SA_PASSWORD=TestPassword123#" `
