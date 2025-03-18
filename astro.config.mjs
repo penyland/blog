@@ -11,10 +11,6 @@ import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 export default defineConfig({
   markdown: {
     shikiConfig: {
-      themes: {
-        light: 'everforest-light',
-        dark: 'slack-dark'
-      },
       wrap: true
     }
   },
@@ -27,14 +23,15 @@ export default defineConfig({
       defaultProps: {
         frame: "code",
         wrap: true,
+        showLineNumbers: false
       },
       plugins: [pluginLineNumbers()],
-      themes: ['nord', 'snazzy-light'],
+      themes: ['material-theme-palenight', 'material-theme-lighter'],
       themeCssSelector: (theme) => {
         return '[data-theme="light"]';
       },
       styleOverrides: {
-        codeFontFamily: 'Cascadia Code'
+        codeFontFamily: 'Cascadia Code',
       },
 
     }),

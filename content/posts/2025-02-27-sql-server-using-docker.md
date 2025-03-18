@@ -17,28 +17,28 @@ Link: https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-doc
 
 ## Pull and run the SQL Server Linux container image
 To run SQL Server in a Docker container, you need to pull the SQL Server Linux container image from the Microsoft Container Registry. You can do this by running the following command.
-```sh showLineNumbers=false
+```sh
 docker pull mcr.microsoft.com/mssql/server:2022-latest
 ```
 
 As I want to persist the data in the container, I have to create a volume to store the data.
-```sh showLineNumbers=false
+```sh
 docker volume create sqldb-data
 ```
 
 Run the container use the following command.
-```powershell frame="code" showLineNumbers
+```powershell frame="terminal"
 docker run `
--e "ACCEPT_EULA=Y" `
--e "MSSQL_SA_PASSWORD=TestPassword123#" `
--e "MSSQL_PID=Developer" `
--e "MSSQL_AGENT_ENABLED=true" `
--p 1433:1433 `
--d `
---name sqlcontainerwsl `
---hostname sqlcontainerwsl `
--v sqldb-data:/var/opt/mssql `
-mcr.microsoft.com/mssql/server:2022-latest
+  -e "ACCEPT_EULA=Y" `
+  -e "MSSQL_SA_PASSWORD=TestPassword123#" `
+  -e "MSSQL_PID=Developer" `
+  -e "MSSQL_AGENT_ENABLED=true" `
+  -p 1433:1433 `
+  -d `
+  --name sqlcontainerwsl `
+  --hostname sqlcontainerwsl `
+  -v sqldb-data:/var/opt/mssql `
+  mcr.microsoft.com/mssql/server:2022-latest
 ```
 
 This starts a new container named `sqlcontainerwsl` with the SQL Server 2022 image. The container is exposed on port 1433, which is the default port for SQL Server. The `MSSQL_SA_PASSWORD` environment variable sets the password for the `sa` user. The `MSSQL_PID` environment variable sets the edition of SQL Server. The `MSSQL_AGENT_ENABLED` environment variable enables the SQL Server Agent service. A data volume named `sqldb-data` is created to store the data.
@@ -57,18 +57,18 @@ In the [official documentation](https://learn.microsoft.com/en-us/sql/linux/sql-
 The command to run the container with a bind mount would then look like this.
 ```powershell
 docker run `
--e "ACCEPT_EULA=Y" `
--e "MSSQL_SA_PASSWORD=TestPassword123#" `
--e "MSSQL_PID=Developer" `
--e "MSSQL_AGENT_ENABLED=true" `
--p 1433:1433 `
--d `
---name sqlcontainerwsl `
---hostname sqlcontainerwsl `
--v ${pwd}/data:/var/opt/mssql/data `
--v ${pwd}/log:/var/opt/mssql/log `
--v ${pwd}/secrets:/var/opt/mssql/secrets `
-mcr.microsoft.com/mssql/server:2022-latest
+  -e "ACCEPT_EULA=Y" `
+  -e "MSSQL_SA_PASSWORD=TestPassword123#" `
+  -e "MSSQL_PID=Developer" `
+  -e "MSSQL_AGENT_ENABLED=true" `
+  -p 1433:1433 `
+  -d `
+  --name sqlcontainerwsl `
+  --hostname sqlcontainerwsl `
+  -v ${pwd}/data:/var/opt/mssql/data `
+  -v ${pwd}/log:/var/opt/mssql/log `
+  -v ${pwd}/secrets:/var/opt/mssql/secrets `
+  mcr.microsoft.com/mssql/server:2022-latest
 ```
 
 `$pwd` is a PowerShell command that returns the current directory. This will mount the current directory to the `/var/opt/mssql/data`, `/var/opt/mssql/log`, and `/var/opt/mssql/secrets` directories in the container.
