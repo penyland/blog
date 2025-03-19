@@ -21,8 +21,8 @@ A container on the other hand is a running instance of a container image. It is 
 An image is composed of multiple layers. Each layer represents a change to the image. When you run a container from an image, the container is created by stacking the layers on top of each other. This allows you to reuse layers across multiple images and containers, which makes images lightweight and fast to download and run.
 The image is typically defined in a Dockerfile, which is a text file that contains a set of instructions for building the image. We will take a closer look at Dockerfiles in a later post.
 
-## How do you get started with containers?
-To get started with containers you need to install a container runtime. The most popular container runtime is Docker. Docker is a platform for developing, shipping, and running applications in containers. Docker provides the ability to package and distribute applications as containers, which are isolated environments that contain everything an application needs to run.
+### Get started with containers
+First you need to install a container runtime. The most popular container runtime is Docker. 
 Other alternatives to Docker are Podman, containerd and Rancher. I will be using Docker in this series of posts but also briefly touch on Podman in a later post.
 
 ### Where do you get container images?
@@ -58,7 +58,7 @@ docker run --rm nginx
 In the last example above we ran the nginx container without any options. This will run the container in the foreground and you will see the output from the container in the terminal. But there's no way to interact or communicate with the container from the host. To be able to interact with the container from the host you need to map a port on the host to a port on the container.
 To map a port you use the **-p** flag followed by the port on the host and the port on the container. The p parameter actually stands for publish and it is used to publish a container's port(s) to the host.
 
-For example, if you want to run nginx in a container that listens on port 8080 on the host and port 80 on the container you use the -p flag like this **-p 8080:80**.
+For example, if you want to run nginx in a container that listens on port 8080 on the host and port 80 in the container you use the -p flag like this **-p 8080:80**.
 ```bash
 docker run -p 8080:80 nginx
 ```
@@ -71,17 +71,20 @@ docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 mcr.microsoft.com/azure-
 ### Detached mode and logs
 When you run a container with Docker you can run it in detached mode by using the **-d** flag. This will run the container in the background.
 ```bash
-docker run -d -p 8080:80 nginx
+> docker run -d -p 8080:80 nginx
+9f3ebe92c0f634034ce4f602ce00d1a985088ddb249bb62b2c5b1a2f98262741
+>
 ```
 
-When the command above is run docker will output the container id of the container that was started. You can use this id to view the logs of the container. It's enough to use the first few characters of the container id.
+When the command above is run docker will output the container id of the container that was started. In this example the container id is **9f3ebe92c0f634034ce4f602ce00d1a985088ddb249bb62b2c5b1a2f98262741**.
+ You can use this id to view the logs of the container. It's enough to use the first few characters of the container id.
 ```bash
-docker logs <container-id>
+docker logs 9f3
 ```
 
 You can attach to a running container by using the **docker attach** command followed by the container id.
 ```bash
-docker attach <container-id>
+docker attach 9f3
 ```
 
 This is the same thing as running the container without the **-d** flag. The container will run in the foreground and you will see the output from the container in the terminal.
