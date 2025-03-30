@@ -8,7 +8,7 @@ coverImage: "/images/nginx.svg"
 categories: ["containers", "nginx"]
 author: "Peter Nylander"
 tags: ["docker", "nginx", "containers"]
-draft: true
+draft: false
 ---
 
 ## Introduction
@@ -68,7 +68,7 @@ The custom configuration file is mounted to `/etc/nginx/nginx.conf` in the conta
 
 ## Building the image
 If you want to build the image yourself, you can create a `Dockerfile` in the root of the blog with the following content.
-```Dockerfile
+``` docker
 FROM node:lts AS build
 WORKDIR /app
 

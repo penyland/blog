@@ -19,7 +19,7 @@ A docker image consists of a series of layers. Each layer represents an instruct
 ## The first Dockerfile
 Let's create a simple Dockerfile that installs the `nginx` web server. Create a new directory and create a file called `Dockerfile` in that directory. Add the following content to the `Dockerfile`:
 
-```Dockerfile
+```dockerfile
 # Use the official nginx image as a base image
 FROM nginx:latest
 
@@ -44,7 +44,7 @@ Voila! You now have a running `nginx` web server in a Docker container. You can 
 ## Run a simple Node.js application
 Let's create a more advanced Dockerfile that runs a simple Node.js application. Create a new directory and create a file called `Dockerfile` in that directory. Add the following content to the `Dockerfile`:
 
-```Dockerfile
+```dockerfile
 # Use the official Node.js image as a base image
 FROM node:23-alpine AS base
 
@@ -82,7 +82,7 @@ server.listen(port, hostname, () => {
 
 This Node.js script creates a simple web server that listens on port 3000 and responds with `Hello, World!` when a request is made.
 
-```Dockerfile
+```dockerfile
 # Use the official Node.js image as a base image
 FROM node:23-alpine AS base
 
@@ -126,7 +126,7 @@ Another way to optimize your Dockerfiles is to use multi-stage builds. Multi-sta
 ### Build a multi-stage Dockerfile
 Let's create a multi-stage Dockerfile that builds a simple Node.js application. Create a new directory and create a file called `Dockerfile` in that directory. Add the following content to the `Dockerfile`:
 
-```Dockerfile
+```dockerfile
 # Use the official Node.js image as a base image
 FROM node:23-alpine AS build
 
@@ -188,7 +188,7 @@ app.Run();
 </Project>
 ```
 
-```Dockerfile
+```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:10.0-preview AS build
 WORKDIR /app
 COPY . .
@@ -202,7 +202,7 @@ CMD ["dotnet", "Test.dll"]
 
 This works great but we can also add a stage for publishing the application. Publishing the application will create a self-contained application that can be run on any machine without the need for the .NET runtime to be installed.
 
-```Dockerfile
+```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:10.0-preview AS build 
 WORKDIR /app
 COPY . .
