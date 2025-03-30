@@ -1,5 +1,5 @@
 ---
-title: "How do you run an ASP.NET Core application with HTTPS in a container?"
+title: "Running an ASP.NET Core application with HTTPS in a container"
 meta_title: ""
 description: "In this post we take a look at how to run an ASP.NET Core application with HTTPS in a container."
 date: 2025-03-14T11:31:00Z

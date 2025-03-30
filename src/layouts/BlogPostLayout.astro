@@ -23,7 +23,7 @@ const { frontmatter } = Astro.props;
               />
             ) : (
               <div class="">
-                <h1 class="text-center text-5xl font-bold text-neutral-700 dark:text-white group-hover:scale-[1.03] transition duration-300 rounded">
+                <h1 class="p-2 text-center md:text-5xl text-3xl font-bold text-neutral-700 dark:text-white group-hover:scale-[1.03] transition duration-300 rounded">
                   {frontmatter.headerText
                     ? frontmatter.headerText
                     : frontmatter.title}
