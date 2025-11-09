@@ -188,6 +188,7 @@ app.Run();
 </Project>
 ```
 
+'Dockerfile' file:
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:10.0-preview AS build
 WORKDIR /app
